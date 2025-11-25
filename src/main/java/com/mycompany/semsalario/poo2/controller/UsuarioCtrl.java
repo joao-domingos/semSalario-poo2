@@ -53,7 +53,7 @@ public class UsuarioCtrl {
         catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("registro inserido com sucesso!");
+        System.out.println("usuario inserido com sucesso!");
     }
     
     public List<Usuario> ler() {
