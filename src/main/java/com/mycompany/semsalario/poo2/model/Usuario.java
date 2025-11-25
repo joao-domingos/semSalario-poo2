@@ -8,15 +8,15 @@ package com.mycompany.semsalario.poo2.model;
  *
  * @author jp
  */
-public class User {
+public class Usuario {
 
     private int id;
     private String name;
-    private int cpf;
+    private Integer cpf;
     private String email;
     private String senha;
 
-    public User(String name, int cpf, String email, String senha) {
+    public Usuario(String name, int cpf, String email, String senha) {
         this.id = 0;
         this.name = name;
         this.cpf = cpf;
@@ -24,16 +24,12 @@ public class User {
         this.senha = senha;
     }
 
-    public User(String email, String senha) {
+    public Usuario(String email, String senha) {
         this.id = 0;
         this.name = null;
         this.cpf = null;
         this.email = email;
         this.senha = senha;
-    }
-
-    public User() {
-
     }
 
     public int getId() {

@@ -9,7 +9,7 @@ package com.mycompany.semsalario.poo2.view;
  * @author jp
  */
 
-import com.mycompany.semsalario.poo2.model.User;
+import com.mycompany.semsalario.poo2.model.Usuario;
 
 public class GUICadastro extends javax.swing.JFrame {
     
@@ -207,7 +207,7 @@ public class GUICadastro extends javax.swing.JFrame {
             return;
         }
         
-        User usuario = new User(email, senha);
+        Usuario usuario = new Usuario(email, senha);
         //aplicar controller aqui
         
         //prints se forem necessarios

@@ -21,21 +21,23 @@ public class Registro {
     private float value;
     private String description;
 
-    public Registro(int id, float value) {
-        this.id = id;
-        this.date = LocalTime.now().toString();
-        this.time = LocalDate.now().toString();
-        this.value = value;
-    }
-
-    public Registro(int id, String name, String date, String time, String type, float value, String description) {
-        this.id = id;
+    public Registro(String name, String date, String time, String type, float value, String description) {
+        this.id = 0;
         this.name = name;
         this.date = date;
         this.time = time;
         this.type = type;
         this.value = value;
         this.description = description;
+    }
+    
+    public Registro(float value, String type) {
+        this.id = 0;
+        this.date = LocalTime.now().toString();
+        this.time = LocalDate.now().toString();
+        this.type = type;
+        this.value = value;
+        this.description = null;
     }
 
     public int getId() {
