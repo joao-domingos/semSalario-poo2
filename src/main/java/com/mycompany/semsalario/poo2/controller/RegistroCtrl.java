@@ -78,7 +78,6 @@ public class RegistroCtrl {
                         rs.getFloat("value"),
                         rs.getString("description")
                 );
-                
                 registros.add(registro);
             }
             
