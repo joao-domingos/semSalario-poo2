@@ -10,6 +10,7 @@ package com.mycompany.semsalario.poo2.view;
  */
 
 import com.mycompany.semsalario.poo2.model.Usuario;
+import com.mycompany.semsalario.poo2.controller.UsuarioCtrl;
 
 public class GUICadastro extends javax.swing.JFrame {
     
@@ -202,13 +203,20 @@ public class GUICadastro extends javax.swing.JFrame {
         String senha = jTextFieldCadastroSenha.getText();
         String senhaSenha = jTextFieldCadastroSenhaConfirma.getText();
         
-        if (senha != senhaSenha) {
+        if (!email.contains("@")) {
+            System.out.println("email invalido");
+            jTextFieldCadastroEmail.setText("");
+            return;
+        }
+        if (!senha.equals(senhaSenha)) {
             System.out.println("senhaSenha diverge de senha");
+            jTextFieldCadastroSenhaConfirma.setText("");
             return;
         }
         
         Usuario usuario = new Usuario(email, senha);
-        //aplicar controller aqui
+        UsuarioCtrl uCtrl = new UsuarioCtrl();
+        uCtrl.inserir(usuario);
         
         //prints se forem necessarios
     }//GEN-LAST:event_jButtonCadastroCadastrarActionPerformed

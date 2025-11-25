@@ -9,7 +9,6 @@ package com.mycompany.semsalario.poo2.model;
  * @author jp
  */
 public class Usuario {
-
     private int id;
     private String name;
     private Integer cpf;
@@ -27,7 +26,7 @@ public class Usuario {
     public Usuario(String email, String senha) {
         this.id = 0;
         this.name = null;
-        this.cpf = null;
+        this.cpf = 0;
         this.email = email;
         this.senha = senha;
     }
