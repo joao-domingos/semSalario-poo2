@@ -8,6 +8,9 @@ package com.mycompany.semsalario.poo2.view;
  *
  * @author jp
  */
+
+import com.mycompany.semsalario.poo2.model.User;
+
 public class GUICadastro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUICadastro.class.getName());
@@ -195,12 +198,19 @@ public class GUICadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldLoginEmailActionPerformed
 
     private void jButtonCadastroCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroCadastrarActionPerformed
-        // TODO add your handling code here:
         String email = jTextFieldCadastroEmail.getText();
         String senha = jTextFieldCadastroSenha.getText();
         String senhaSenha = jTextFieldCadastroSenhaConfirma.getText();
         
-        System.out.println(email + senha + senhaSenha);
+        if (senha != senhaSenha) {
+            System.out.println("senhaSenha diverge de senha");
+            return;
+        }
+        
+        User usuario = new User(email, senha);
+        //aplicar controller aqui
+        
+        //prints se forem necessarios
     }//GEN-LAST:event_jButtonCadastroCadastrarActionPerformed
 
     private void jButtonLoginLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginLimparActionPerformed
@@ -212,7 +222,9 @@ public class GUICadastro extends javax.swing.JFrame {
         String email = jTextFieldCadastroEmail.getText();
         String senha = jTextFieldCadastroEmail.getText();
         
-        System.out.println(email + senha);
+        //RODA um cadastrar a partir do controller
+        
+        //print se necessarios
     }//GEN-LAST:event_jButtonLoginLogarActionPerformed
 
     /**
