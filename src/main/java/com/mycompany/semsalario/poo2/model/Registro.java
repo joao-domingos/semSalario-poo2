@@ -61,6 +61,10 @@ public class Registro {
     public float getValue() {
         return value;
     }
+    
+    public String getDescription() {
+        return description;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -71,11 +75,11 @@ public class Registro {
     }
 
     public void setDate() {
-        this.date = LocalDate.now();
+        this.date = LocalDate.now().toString();
     }
 
     public void setTime() {
-        this.time = LocalTime.now();
+        this.time = LocalTime.now().toString();
     }
 
     public void setType(String type) {
@@ -85,6 +89,7 @@ public class Registro {
     public void setValue(float value) {
         this.value = value;
     }
+    
 
     public void setDescription(String description) {
         this.description = description;
