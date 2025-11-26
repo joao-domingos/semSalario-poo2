@@ -14,7 +14,7 @@ import com.mycompany.semsalario.poo2.model.Registro;
 import java.sql.Connection;
 import java.sql.DriverManager;
 //import java.sql.SQLException;
-//import java.sql.Statement;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class RegistroCtrl {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println("inserindo dados...");
             
             ps.setString(1, registro.getName());
@@ -49,6 +49,12 @@ public class RegistroCtrl {
             
             ps.execute();
             System.out.println("dados inseridos com sucesso");
+            
+            //pega o auto increment do mysql
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                registro.setId(rs.getInt(1));
+            }
 
             ps.close();
             con.close();
@@ -71,9 +77,12 @@ public class RegistroCtrl {
 
             while (rs.next()) {
                 Registro registro = new Registro(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("date"),
+                        rs.getString("time"),
                         rs.getString("type"),
                         rs.getFloat("value"),
-                        rs.getString("name"),                        
                         rs.getString("description")
                 );
                 registros.add(registro);
