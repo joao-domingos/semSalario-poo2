@@ -59,6 +59,8 @@ public class GUICadastro extends javax.swing.JFrame {
 
         jLabelCadastroEmail.setText("Email:");
 
+        jTextFieldCadastroEmail.addActionListener(this::jTextFieldCadastroEmailActionPerformed);
+
         jLabelCadastroSenha.setText("Senha:");
 
         jTextFieldCadastroSenha.addActionListener(this::jTextFieldCadastroSenhaActionPerformed);
@@ -234,6 +236,10 @@ public class GUICadastro extends javax.swing.JFrame {
         
         //print se necessarios
     }//GEN-LAST:event_jButtonLoginLogarActionPerformed
+
+    private void jTextFieldCadastroEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCadastroEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCadastroEmailActionPerformed
 
     /**
      * @param args the command line arguments
