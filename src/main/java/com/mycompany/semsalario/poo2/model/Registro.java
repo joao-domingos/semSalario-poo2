@@ -33,8 +33,8 @@ public class Registro {
     
     public Registro(float value, String type) {
         this.id = 0;
-        this.date = LocalTime.now().toString();
-        this.time = LocalDate.now().toString();
+        this.date = LocalDate.now().toString();
+        this.time = LocalTime.now().withNano(0).toString();
         this.type = type;
         this.value = value;
         this.description = null;

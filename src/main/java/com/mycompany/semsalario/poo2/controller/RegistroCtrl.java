@@ -33,7 +33,7 @@ public class RegistroCtrl {
 
     //faz o crud para o mysql server
     public void inserir(Registro registro) {
-        String sql = "INSERT INTO registro (name, date, time, type, value, description) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO registro (name, date, time, type, value, description) VALUES(?,?,?,?,?,?)";
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -41,8 +41,8 @@ public class RegistroCtrl {
             System.out.println("inserindo dados...");
             
             ps.setString(1, registro.getName());
-            ps.setString(2, registro.getDate());
-            ps.setString(3, registro.getTime());
+            ps.setString(2, registro.getDate().toString());
+            ps.setString(3, registro.getTime().toString());
             ps.setString(4, registro.getType());
             ps.setFloat(5, registro.getValue());
             ps.setString(6, registro.getDescription());

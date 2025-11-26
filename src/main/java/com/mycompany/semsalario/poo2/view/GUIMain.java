@@ -11,16 +11,22 @@ package com.mycompany.semsalario.poo2.view;
 
 import com.mycompany.semsalario.poo2.model.Registro;
 import com.mycompany.semsalario.poo2.controller.RegistroCtrl;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 public class GUIMain extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIMain.class.getName());
+    
+    private RegistroCtrl regCtrl;
 
     /**
      * Creates new form GUIMain
      */
     public GUIMain() {
         initComponents();
+        
+        this.regCtrl = new RegistroCtrl();
     }
 
     /**
@@ -33,16 +39,16 @@ public class GUIMain extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroupRegAdmTipo = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelRegAdm = new javax.swing.JLabel();
         jButtonRegAdmInserir = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonRegAdmLer = new javax.swing.JButton();
         jButtonRegAdmEditar = new javax.swing.JButton();
         jButtonRegAdmExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabelRegistrosAdminValue = new javax.swing.JLabel();
+        jTableRegAdm = new javax.swing.JTable();
+        jLabelRegAdmValue = new javax.swing.JLabel();
         jTextFieldRegAdmValor = new javax.swing.JTextField();
-        jLabelRegistrosAdminType = new javax.swing.JLabel();
+        jLabelRegAdmType = new javax.swing.JLabel();
         jRadioButtonRegAdmEntrada = new javax.swing.JRadioButton();
         jRadioButtonRegAdmSaida = new javax.swing.JRadioButton();
         jLabelRegAdmNome = new javax.swing.JLabel();
@@ -51,43 +57,55 @@ public class GUIMain extends javax.swing.JFrame {
         jTextFieldRegAdmDescricao = new javax.swing.JTextField();
         jTextFieldRegAdmNome = new javax.swing.JTextField();
         jTextFieldRegAdmId = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBarRegAdm = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Registros Admin");
+        jLabelRegAdm.setText("Registros Admin");
 
         jButtonRegAdmInserir.setText("inserir");
         jButtonRegAdmInserir.addActionListener(this::jButtonRegAdmInserirActionPerformed);
 
-        jButton2.setText("ler");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jButtonRegAdmLer.setText("ler");
+        jButtonRegAdmLer.addActionListener(this::jButtonRegAdmLerActionPerformed);
 
         jButtonRegAdmEditar.setText("editar");
 
         jButtonRegAdmExcluir.setText("excluir");
         jButtonRegAdmExcluir.addActionListener(this::jButtonRegAdmExcluirActionPerformed);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRegAdm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "tipo", "valor", "nome", "dia", "hora", "descricao", "id"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        jLabelRegistrosAdminValue.setText("Valor");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableRegAdm);
+
+        jLabelRegAdmValue.setText("Valor");
 
         jTextFieldRegAdmValor.addActionListener(this::jTextFieldRegAdmValorActionPerformed);
 
-        jLabelRegistrosAdminType.setText("Tipo");
+        jLabelRegAdmType.setText("Tipo");
 
         buttonGroupRegAdmTipo.add(jRadioButtonRegAdmEntrada);
         jRadioButtonRegAdmEntrada.setText("Entrada");
@@ -105,12 +123,12 @@ public class GUIMain extends javax.swing.JFrame {
         jTextFieldRegAdmId.addActionListener(this::jTextFieldRegAdmIdActionPerformed);
 
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenuBarRegAdm.add(jMenu1);
 
         jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenuBarRegAdm.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBarRegAdm);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,14 +144,14 @@ public class GUIMain extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelRegistrosAdminValue)
-                                            .addComponent(jLabelRegistrosAdminType))
+                                            .addComponent(jLabelRegAdmValue)
+                                            .addComponent(jLabelRegAdmType))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jRadioButtonRegAdmSaida)
                                             .addComponent(jRadioButtonRegAdmEntrada)
                                             .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButtonRegAdmEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,7 +172,7 @@ public class GUIMain extends javax.swing.JFrame {
                             .addComponent(jTextFieldRegAdmNome)
                             .addComponent(jTextFieldRegAdmDescricao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))))
@@ -163,14 +181,14 @@ public class GUIMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRegistrosAdminValue)
+                    .addComponent(jLabelRegAdmValue)
                     .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRegistrosAdminType)
+                    .addComponent(jLabelRegAdmType)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButtonRegAdmEntrada)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -197,7 +215,7 @@ public class GUIMain extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -205,9 +223,25 @@ public class GUIMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void jButtonRegAdmLerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegAdmLerActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTableRegAdm.getModel();
+        model.setRowCount(0);
+        
+        List<Registro> registros = regCtrl.ler();
+        
+        for (Registro reg: registros) {
+            model.addRow(new Object[] {
+                reg.getType(),
+                reg.getValue(),
+                reg.getName(),
+                reg.getDate(),
+                reg.getTime(),
+                reg.getDescription(),
+                reg.getId()
+            });
+        } 
+    }//GEN-LAST:event_jButtonRegAdmLerActionPerformed
 
     private void jButtonRegAdmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegAdmExcluirActionPerformed
         // TODO add your handling code here:
@@ -279,23 +313,23 @@ public class GUIMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupRegAdmTipo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonRegAdmEditar;
     private javax.swing.JButton jButtonRegAdmExcluir;
     private javax.swing.JButton jButtonRegAdmInserir;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonRegAdmLer;
+    private javax.swing.JLabel jLabelRegAdm;
     private javax.swing.JLabel jLabelRegAdmDescricao;
     private javax.swing.JLabel jLabelRegAdmId;
     private javax.swing.JLabel jLabelRegAdmNome;
-    private javax.swing.JLabel jLabelRegistrosAdminType;
-    private javax.swing.JLabel jLabelRegistrosAdminValue;
+    private javax.swing.JLabel jLabelRegAdmType;
+    private javax.swing.JLabel jLabelRegAdmValue;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBarRegAdm;
     private javax.swing.JRadioButton jRadioButtonRegAdmEntrada;
     private javax.swing.JRadioButton jRadioButtonRegAdmSaida;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableRegAdm;
     private javax.swing.JTextField jTextFieldRegAdmDescricao;
     private javax.swing.JTextField jTextFieldRegAdmId;
     private javax.swing.JTextField jTextFieldRegAdmNome;
