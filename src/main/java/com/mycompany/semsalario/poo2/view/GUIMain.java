@@ -72,6 +72,7 @@ public class GUIMain extends javax.swing.JFrame {
         jButtonRegAdmLer.addActionListener(this::jButtonRegAdmLerActionPerformed);
 
         jButtonRegAdmEditar.setText("editar");
+        jButtonRegAdmEditar.addActionListener(this::jButtonRegAdmEditarActionPerformed);
 
         jButtonRegAdmExcluir.setText("excluir");
         jButtonRegAdmExcluir.addActionListener(this::jButtonRegAdmExcluirActionPerformed);
@@ -138,9 +139,10 @@ public class GUIMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,74 +152,75 @@ public class GUIMain extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jRadioButtonRegAdmSaida)
                                             .addComponent(jRadioButtonRegAdmEntrada)
-                                            .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButtonRegAdmEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButtonRegAdmExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jButtonRegAdmInserir))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jButtonRegAdmInserir)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRegAdmDescricao)
-                            .addComponent(jLabelRegAdmNome, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelRegAdmId, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldRegAdmId, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldRegAdmNome)
-                            .addComponent(jTextFieldRegAdmDescricao))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 72, Short.MAX_VALUE)
+                                .addComponent(jLabelRegAdmId)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRegAdmId, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonRegAdmEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonRegAdmExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelRegAdmDescricao)
+                                    .addComponent(jLabelRegAdmNome, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldRegAdmDescricao)
+                                    .addComponent(jTextFieldRegAdmNome))))
+                        .addGap(12, 12, 12)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRegAdmValue)
-                    .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRegAdmType)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButtonRegAdmEntrada)
+                        .addComponent(jLabelRegAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelRegAdmValue)
+                                    .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelRegAdmType)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRadioButtonRegAdmEntrada)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButtonRegAdmSaida)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRegAdmInserir))
+                            .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelRegAdmNome)
+                            .addComponent(jTextFieldRegAdmNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButtonRegAdmSaida)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonRegAdmInserir)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRegAdmNome)
-                    .addComponent(jTextFieldRegAdmNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRegAdmDescricao)
-                    .addComponent(jTextFieldRegAdmDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelRegAdmId)
-                    .addComponent(jTextFieldRegAdmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegAdmEditar)
-                    .addComponent(jButtonRegAdmExcluir))
-                .addGap(14, 14, 14))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelRegAdmDescricao)
+                            .addComponent(jTextFieldRegAdmDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelRegAdmId)
+                            .addComponent(jTextFieldRegAdmId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonRegAdmEditar)
+                            .addComponent(jButtonRegAdmExcluir))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,7 +247,9 @@ public class GUIMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegAdmLerActionPerformed
 
     private void jButtonRegAdmExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegAdmExcluirActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(jTextFieldRegAdmId.getText());
+        
+        regCtrl.deletar(id);
     }//GEN-LAST:event_jButtonRegAdmExcluirActionPerformed
 
     private void jRadioButtonRegAdmSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRegAdmSaidaActionPerformed
@@ -253,9 +258,10 @@ public class GUIMain extends javax.swing.JFrame {
 
     private void jButtonRegAdmInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegAdmInserirActionPerformed
         String inputValor = jTextFieldRegAdmValor.getText();
+        String tipo = "";
+        
         float valor = Float.parseFloat(inputValor);
         
-        String tipo = "";
         if (jRadioButtonRegAdmEntrada.isSelected()) {
             tipo = "entrada";
         }
@@ -263,13 +269,7 @@ public class GUIMain extends javax.swing.JFrame {
             tipo = "saida";
         }
         
-        /*if (valor == "" || valor.typeOf() === String) {
-            System.out.println("valor invalido");
-            jTextFieldRegAdmValor.setText("");
-            return;
-        }*/
-        
-        Registro registro = new Registro(valor, tipo);
+        Registro registro = new Registro(tipo, valor);
         RegistroCtrl rCtrl = new RegistroCtrl();
         rCtrl.inserir(registro);
        
@@ -285,6 +285,21 @@ public class GUIMain extends javax.swing.JFrame {
     private void jTextFieldRegAdmValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRegAdmValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRegAdmValorActionPerformed
+
+    private void jButtonRegAdmEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegAdmEditarActionPerformed
+        int id = Integer.parseInt(jTextFieldRegAdmId.getText());
+        
+        String inputValor = jTextFieldRegAdmValor.getText();
+        float valor = Float.parseFloat(inputValor);
+        String tipo = "";
+        String nome = jTextFieldRegAdmNome.getText();
+        String descricao = jTextFieldRegAdmDescricao.getText();
+        
+        
+        
+        Registro registro = new Registro(tipo,valor, nome, descricao);
+        regCtrl.atualizar(registro, id);
+    }//GEN-LAST:event_jButtonRegAdmEditarActionPerformed
 
     /**
      * @param args the command line arguments
