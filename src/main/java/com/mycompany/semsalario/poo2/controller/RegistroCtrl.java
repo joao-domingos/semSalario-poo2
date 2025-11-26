@@ -33,7 +33,7 @@ public class RegistroCtrl {
 
     //faz o crud para o mysql server
     public void inserir(Registro registro) {
-        String sql = "INSERT INTO registros (name, date, time, type, value, description) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO registro (name, date, time, type, value, description) VALUES(?,?,?,?,?,?,?)";
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -59,7 +59,7 @@ public class RegistroCtrl {
     }
 
     public List<Registro> ler() {
-        String sql = "SELECT * FROM registros";
+        String sql = "SELECT * FROM registro";
         List<Registro> registros = new ArrayList<>();
 
         try {
@@ -119,7 +119,7 @@ public class RegistroCtrl {
     }
 
     public void deletar(int id) {
-        String sql = "DELETE from registros WHERE id = ?";
+        String sql = "DELETE from registro WHERE id = ?";
         
         try {
             Class.forName(driver);
