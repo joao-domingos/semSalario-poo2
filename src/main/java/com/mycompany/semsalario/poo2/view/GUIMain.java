@@ -158,7 +158,7 @@ public class GUIMain extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(51, 51, 51)
                                         .addComponent(jTextFieldRegAdmValor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                                 .addComponent(jButtonRegAdmLer, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,7 +294,12 @@ public class GUIMain extends javax.swing.JFrame {
         String nome = jTextFieldRegAdmNome.getText();
         String descricao = jTextFieldRegAdmDescricao.getText();
         
-        
+        if (jRadioButtonRegAdmEntrada.isSelected()) {
+            tipo = "entrada";
+        }
+        else if (jRadioButtonRegAdmSaida.isSelected()) {
+            tipo = "saida";
+        }
         
         Registro registro = new Registro(tipo,valor, nome, descricao);
         regCtrl.atualizar(registro, id);
